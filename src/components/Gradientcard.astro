@@ -1,0 +1,39 @@
+---
+import Button from "./Button.astro"
+---
+
+<article>
+    <slot/>
+    <h3>Text</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, maiores.</p>
+    <div class="btn-container">
+    <Button/>
+    </div>
+</article>
+
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+.allerta-stencil-regular {
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    article{  background: linear-gradient(180deg, #0F1843, #643B81);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: white}
+
+  h2{
+    font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #fff;
+  }
+</style>
