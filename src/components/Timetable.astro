@@ -1,36 +1,31 @@
 ---
-
+const { artist } = Astro.props;
 ---
+
 <article>
-    <p class="time">18.00</p>
-    <p>
-      TESION B2B <br />
-      PAI-LIN
-    </p>
-  </article>
-  
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
-    .allerta-stencil-regular {
-      font-family: "Allerta Stencil", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-  
-  
-    article {
-      background-color: white;
-      border-radius: 15px;
-      padding: 15px;
-      margin: 10px;
-      width: 140px;
-      box-shadow: 2px 7px 15px #f72862;
-      color: #f72862;
-      text-align: center;
-      font-family: Allerta Stencil;
-    }
-  
-    .time {
-      text-align: left;
-    }
-  </style>
+  <h1>{artist.name}</h1>
+  <p class="time">18.00</p>
+  <p>
+    TESION B2B <br />
+    PAI-LIN
+  </p>
+  <a href={"/artists/" + artist.slug}>{artist.name}</a>
+</article>
+
+<style>
+  article {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    width: 140px;
+    box-shadow: 2px 7px 15px #f72862;
+    color: #f72862;
+    text-align: center;
+    font-family: Allerta Stencil;
+  }
+
+  .time {
+    text-align: left;
+  }
+</style>

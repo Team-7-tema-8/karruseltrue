@@ -1,0 +1,18 @@
+---
+import Timetable from "../../components/Timetable.astro";
+
+const url = "https://qzvghkmmouqxsfoknccp.supabase.co/rest/v1/karrusel";
+const options = {
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6dmdoa21tb3VxeHNmb2tuY2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2Mzc5NjEsImV4cCI6MjA0NDIxMzk2MX0.sy6a8KiedZkQm-LbWQcxGe3QCll35uevBl3UVPUPLfk",
+  },
+};
+
+const artists = await fetch(url, options).then((res) => res.json());
+---
+
+<h1>Kunstnere</h1>
+<ul>
+  {artists.map((artist) => <Timetable artist={artist} />)}
+</ul>

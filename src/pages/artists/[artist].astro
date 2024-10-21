@@ -1,0 +1,30 @@
+---
+// @ts-nocheck
+export async function getStaticPaths() {
+  const url = "https://qzvghkmmouqxsfoknccp.supabase.co/rest/v1/karrusel";
+  const options = {
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6dmdoa21tb3VxeHNmb2tuY2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2Mzc5NjEsImV4cCI6MjA0NDIxMzk2MX0.sy6a8KiedZkQm-LbWQcxGe3QCll35uevBl3UVPUPLfk",
+    },
+  };
+
+  const artists = await fetch(url, options).then((res) => res.json());
+
+  return artists.map((artist) => ({
+    params: { artist: artist.slug }, // [artist]=artist.slug
+    props: { artist }, // send al data med som props
+  }));
+}
+
+const { artist } = Astro.props;
+---
+
+<h1>{artist.name}</h1>
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex velit fugiat
+  quasi corrupti, expedita ipsa reiciendis hic iste delectus dolores, suscipit
+  itaque enim placeat nostrum magnam voluptatum porro beatae nobis. Quod, quia.
+  Sapiente, recusandae nostrum natus ab est itaque, earum laborum nulla velit
+  deserunt inventore aliquam iste veniam assumenda?
+</p>
