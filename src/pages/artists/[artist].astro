@@ -4,8 +4,7 @@ export async function getStaticPaths() {
   const url = "https://qzvghkmmouqxsfoknccp.supabase.co/rest/v1/karrusel";
   const options = {
     headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6dmdoa21tb3VxeHNmb2tuY2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2Mzc5NjEsImV4cCI6MjA0NDIxMzk2MX0.sy6a8KiedZkQm-LbWQcxGe3QCll35uevBl3UVPUPLfk",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6dmdoa21tb3VxeHNmb2tuY2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2Mzc5NjEsImV4cCI6MjA0NDIxMzk2MX0.sy6a8KiedZkQm-LbWQcxGe3QCll35uevBl3UVPUPLfk",
     },
   };
 
@@ -22,12 +21,34 @@ import MainLayout from "../../components/MainLayout.astro";
 ---
 
 <MainLayout>
-  <h1>{artist.name}</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex velit
-    fugiat quasi corrupti, expedita ipsa reiciendis hic iste delectus dolores,
-    suscipit itaque enim placeat nostrum magnam voluptatum porro beatae nobis.
-    Quod, quia. Sapiente, recusandae nostrum natus ab est itaque, earum laborum
-    nulla velit deserunt inventore aliquam iste veniam assumenda?
-  </p>
+  <div class="artist_grid">
+    <img src={"/img/" + artist.image} alt="" />
+    <div class="artist_text">
+      <h1>{artist.name}</h1>
+      <p>
+        {artist.content}
+      </p>
+      <div class="spotify-player">
+        <iframe src={"https://open.spotify.com/embed/track/" + artist.spotify} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
 </MainLayout>
+
+<style>
+  .artist_text {
+    backdrop-filterbure
+  }
+
+  img {
+    align-self: stretch;
+    object-fit: cover;
+  }
+  .artist_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100vh;
+  }
+
+  @mediaa
+</style>
