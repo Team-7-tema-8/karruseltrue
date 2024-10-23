@@ -25,9 +25,9 @@ import MainLayout from "../../components/MainLayout.astro";
     <img src={"/img/" + artist.image} alt="" />
     <div class="artist_text">
       <h1>{artist.name}</h1>
-      <p>
-        {artist.content}
-      </p>
+      <p>{artist.content1}</p>
+      <p>{artist.content2}</p>
+      <p>{artist.content3}</p>
       <div class="spotify-player">
         <iframe src={"https://open.spotify.com/embed/track/" + artist.spotify} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
@@ -37,7 +37,13 @@ import MainLayout from "../../components/MainLayout.astro";
 
 <style>
   .artist_text {
-    backdrop-filterbure
+    margin: 3%;
+  }
+  .artist_text p {
+    margin-bottom: 6%;
+  }
+  .artist_text h1 {
+    margin-bottom: 3%;
   }
 
   img {
@@ -46,9 +52,29 @@ import MainLayout from "../../components/MainLayout.astro";
   }
   .artist_grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    height: 100vh;
   }
 
-  @mediaa
+  @media (min-width: 800px) {
+    .artist_grid {
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+    .artist_text {
+      margin: 3%;
+    }
+    .artist_text p {
+      font-size: 20px;
+      margin-bottom: 2%;
+      width: 65ch;
+    }
+    .artist_text h1 {
+      font-size: 5rem;
+      margin-bottom: 5%;
+      text-shadow: 3px 3px 0 #f72862;
+    }
+
+    .spotify-player {
+      margin-top: 10%;
+    }
+  }
 </style>

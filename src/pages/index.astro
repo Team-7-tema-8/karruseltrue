@@ -11,19 +11,9 @@ import Button from "../components/Button.astro";
   <section class="container">
     <h2 class="program">PROGRAM</h2>
     <div class="cards">
-      <Gradientcard
-        header="LINEUP"
-        text="Join us for an infusion of house, disco, and techno in the woods, featuring 44 artists from across the world."
-      />
-      <Gradientcard
-        header="TICKETS"
-        text="Buy your ticket for Karrusel 2024. Buy now for blind bird tickets."
-        price="800DKK"
-      />
-      <Gradientcard
-        header="MAP"
-        text="The map for Karrusel is ready! Explore the map and find out where you'll be singing, dancing and having a blast!"
-      />
+      <Gradientcard header="LINEUP" text="Join us for an infusion of house, disco, and techno in the woods, featuring 44 artists from across the world." />
+      <Gradientcard header="TICKETS" text="Buy your ticket for Karrusel 2024. Buy now for blind bird tickets." price="800DKK" />
+      <Gradientcard header="MAP" text="The map for Karrusel is ready! Explore the map and find out where you'll be singing, dancing and having a blast!" />
     </div>
     <h2>GALLERY</h2>
     <div class="gallery">
@@ -60,7 +50,8 @@ import Button from "../components/Button.astro";
 
   .cards {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 5%;
     margin-top: 20px;
   }
   .program {
@@ -76,10 +67,11 @@ import Button from "../components/Button.astro";
   .gallery {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 5%;
   }
   h2 {
-    margin-top: 20px;
+    margin-top: 10%;
+    margin-left: 5%;
   }
 
   .buttons {
