@@ -1,13 +1,15 @@
 ---
 import Button from "./Button.astro";
+const header = Astro.props.header;
+const text = Astro.props.text;
 ---
 
 <article>
   <slot />
-  <h3>Text</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, maiores.</p>
+  <h3>{header}</h3>
+  <p>{text}</p>
   <div class="btn-container">
-    <Button />
+    <Button text="LINEUP" />
   </div>
 </article>
 

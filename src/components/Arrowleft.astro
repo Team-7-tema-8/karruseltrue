@@ -1,10 +1,6 @@
----
-const text = Astro.props.text;
----
-
 <div class="btn-container">
   <button>
-    <p>{text}</p>
+    <img src="/img/arrow.png" alt="arrow" />
   </button>
 </div>
 
@@ -12,7 +8,7 @@ const text = Astro.props.text;
   button {
     display: inline-block;
     margin: 20px;
-    padding: 3px 35px;
+    padding: 3px 10px;
     border: 2px solid #f72862;
     border-radius: 15px;
     color: white;
@@ -40,5 +36,9 @@ const text = Astro.props.text;
   button:focus {
     background-color: #f0d8df;
     text-shadow: none;
+  }
+
+  img {
+    rotate: 180deg;
   }
 </style>
