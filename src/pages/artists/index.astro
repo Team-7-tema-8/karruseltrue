@@ -1,6 +1,9 @@
 ---
 import Timetable from "../../components/Timetable.astro";
 import MainLayout from "../../components/MainLayout.astro";
+import Button from "../../components/Button.astro";
+import Arrowleft from "../../components/Arrowleft.astro";
+import Arrowright from "../../components/Arrowright.astro";
 
 const url = "https://qzvghkmmouqxsfoknccp.supabase.co/rest/v1/karrusel";
 const options = {
@@ -14,8 +17,106 @@ const artists = await fetch(url, options).then((res) => res.json());
 ---
 
 <MainLayout>
-  <h1>Kunstnere</h1>
-  <ul>
-    {artists.map((artist) => <Timetable artist={artist} />)}
-  </ul>
+  <div class="buttons">
+    <Button text="Thursday" />
+    <Button text="Friday" />
+    <Button text="Saturday" />
+  </div>
+  <div class="timetable">
+    <div>
+      <h2>MANEGEN</h2>
+      <ul>
+        {artists.map((artist) => <Timetable artist={artist} time="18.00" />)}
+      </ul>
+    </div>
+    <div>
+      <h2>TRIBUNEN</h2>
+      <ul>
+        {artists.map((artist) => <Timetable artist={artist} time="19.30" />)}
+      </ul>
+    </div>
+    <div>
+      <h2>BALKONEN</h2>
+      <ul>
+        {artists.map((artist) => <Timetable artist={artist} time="21.00" />)}
+      </ul>
+    </div>
+    <div>
+      <h2>ARKADEN</h2>
+      <ul>
+        {artists.map((artist) => <Timetable artist={artist} time="00.00" />)}
+      </ul>
+    </div>
+  </div>
+  <div class="arrows">
+    <Arrowleft />
+    <Arrowright />
+  </div>
+  <h2>DISCOVER THE ARTISTS</h2>
+  <div class="imagecontainer">
+    <img src="/img/anetha.webp" alt="anetha" />
+    <div class="billedetext"><h2>ANETHA</h2></div>
+  </div>
+  <div class="arrows">
+    <Arrowleft />
+    <Button text="VIEW ARTIST" />
+    <Arrowright />
+  </div>
 </MainLayout>
+
+<style>
+  h2 {
+    margin-top: 7%;
+    margin-bottom: 7%;
+    margin-left: 5%;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  .arrows {
+    display: flex;
+    justify-content: center;
+  }
+
+  .imagecontainer {
+    position: relative;
+    display: inline-block;
+  }
+  .imagecontainer img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 10px #f72862;
+  }
+
+  .billedetext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12vw;
+    padding: 10px;
+    text-align: center;
+  }
+
+  img {
+    border-radius: 20px;
+  }
+
+  @media (max-width: 800px) {
+    .timetable {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      place-items: center;
+    }
+  }
+
+  @media (min-width: 801px) {
+    .timetable {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      place-items: center;
+    }
+  }
+</style>
