@@ -25,6 +25,13 @@ img {
 }
 
 body {
-  background-image: linear-gradient(to bottom, #0c141e, #280a4d);
+  background: linear-gradient(180deg, #0f1843, #643b81);
   color: white;
+  background-repeat: no-repeat;
+}
+
+h2 {
+  color: white;
+  text-shadow: 4px 2px 4px #f72862;
+  font-family: "Allerta Stencil", sans-serif;
 }

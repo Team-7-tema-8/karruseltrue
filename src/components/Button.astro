@@ -2,17 +2,18 @@
 const text = Astro.props.text;
 ---
 
-<div class="btn-container">
-  <button>
-    <p>{text}</p>
-  </button>
-</div>
-
+<a href="/artists">
+  <div class="btn-container">
+    <button>
+      <p>{text}</p>
+    </button>
+  </div>
+</a>
 <style>
   button {
     display: inline-block;
     margin: 20px;
-    padding: 3px 35px;
+    padding: 8px 35px;
     border: 2px solid #f72862;
     border-radius: 15px;
     color: white;

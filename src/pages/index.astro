@@ -1,16 +1,106 @@
 ---
+import Arrowleft from "../components/Arrowleft.astro";
+import Arrowright from "../components/Arrowright.astro";
+import Gallericard from "../components/Gallericard.astro";
+import Gradientcard from "../components/Gradientcard.astro";
 import MainLayout from "../components/MainLayout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout>
-  <h1>hej med dig</h1>
+  <section class="container">
+    <h2 class="program">PROGRAM</h2>
+    <div class="cards">
+      <Gradientcard
+        header="LINEUP"
+        text="Join us for an infusion of house, disco, and techno in the woods, featuring 44 artists from across the world."
+      />
+      <Gradientcard
+        header="TICKETS"
+        text="Buy your ticket for Karrusel 2024. Buy now for blind bird tickets."
+        price="800DKK"
+      />
+      <Gradientcard
+        header="MAP"
+        text="The map for Karrusel is ready! Explore the map and find out where you'll be singing, dancing and having a blast!"
+      />
+    </div>
+    <h2>GALLERY</h2>
+    <div class="gallery">
+      <a href="/artists"> <img src="/img/rave1.webp" alt="rave1" /></a>
+      <a href="/artists"> <img src="/img/rave2.webp" alt="rave1" /></a>
+      <a href="/artists"> <img src="/img/rave3.webp" alt="rave1" /></a>
+      <a href="/artists"> <img src="/img/rave4.webp" alt="rave1" /></a>
+      <a href="/artists"> <img src="/img/rave5.webp" alt="rave1" /></a>
+    </div>
+
+    <div class="buttons">
+      <Arrowleft />
+      <Button text="GALLERY" />
+      <Arrowright />
+    </div>
+  </section>
 </MainLayout>
 <style>
   html {
-    background-color: rgb(16, 19, 46);
+    background: linear-gradient(180deg, #0f1843, #643b81);
   }
 
+  /* .container {
+    margin: 0 3%;
+  } */
+
   body {
-    background-image: url("/img/rave5.webp");
+    background-image: url("/img/rave4.webp");
+    height: 100vh; /* Fylder hele browserhøjden */
+    background-size: cover; /* Sørger for at billedet skalerer responsivt */
+    background-position: center; /* Centrerer billedet i containeren */
+    background-repeat: no-repeat; /* Forhindrer gentagelse af billedet */
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .program {
+    margin-top: 400px;
+    font-family: "Allerta Stencil", sans-serif;
+  }
+
+  .gallery a {
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 18%;
+  }
+  .gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  h2 {
+    margin-top: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    border-radius: 18px;
+    align-self: stretch;
+    object-fit: cover;
+    height: 260px;
+  }
+
+  @media (max-width: 800px) {
+    .cards {
+      flex-direction: column;
+      place-content: center center;
+    }
+    .gallery a {
+      place-self: center center;
+    }
   }
 </style>
