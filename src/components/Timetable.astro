@@ -1,14 +1,11 @@
 ---
-const { artist } = Astro.props;
+const { artist, time, text } = Astro.props;
 ---
 
 <article>
   <h1>{artist.name}</h1>
-  <p class="time">18.00</p>
-  <p>
-    TESION B2B <br />
-    PAI-LIN
-  </p>
+  <p class="time">{time}</p>
+  <p>{text}</p>
   <a href={"/artists/" + artist.slug}>{artist.name}</a>
 </article>
 
