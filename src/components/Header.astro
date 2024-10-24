@@ -3,44 +3,197 @@ import "../pages/global.css";
 ---
 
 <header>
-  <p>28/8-30/8 2025</p>
-  <a href="../pages"> <img src="/img/karrusel.png" alt="logo" /></a>
+  <!-- dato -->
+  <div class="date">28/8-30/8 2025</div>
 
-  <div class="countdown">
+  <!-- <div class="countdown">
     <span class="days">254</span><span class="label"> DAGE</span> |
     <span class="hours">0</span><span class="label"> TIMER</span> |
     <span class="minutes">16</span><span class="label"> MIN</span>
-  </div>
+  </div> -->
+
+  <!-- burger menu ikon -->
+  <input type="checkbox" id="menuAvPaa">
+  <label id="burger" for="menuAvPaa">
+    <div></div>
+    <div></div>
+    <div></div>
+  </label>
+
+  <!-- navigations menu -->
+  <nav id="menu">
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/">TICKETS</a></li>
+      <li><a href="/artists">LINEUP</a></li>
+      <li><a href="/">MAP</a></li>
+    </ul>
+  </nav>
 </header>
 
+<!-- Fjern dato når menu åbnes -->
+<script>
+const menuCheckbox = document.getElementById('menuAvPaa') as HTMLInputElement;
+const dateElement = document.querySelector('.date') as HTMLElement;
+
+menuCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        dateElement.style.display = 'none';
+    } else {
+        dateElement.style.display = 'block';
+    }
+});
+</script>
+
 <style>
-  header {
+ .countdown {
+    color: #fff;
+    text-shadow: 0 0 7px #F72862, 0 0 42px #F72862; 
+    font-size: 1rem;             
+    z-index: 1000;
+    margin-left: 60%;
+    flex-shrink: 0;
+}
+    header {
+        height: 4rem;
+        background: transparent;
+        backdrop-filter: blur(15px);
+        font-size: 16px;
+        font-family: "Saira Stencil One", serif;
+    }
+    
+    .date {
+        position: absolute;
+        font-family: "Allerta Stencil", sans-serif;
+        color: #fff;
+        text-shadow: 0 0 7px #F72862, 0 0 42px #F72862, 0 0 82px #F72862, 0 0 102px #F72862, 0 0 151px #F72862;
+        left: 1rem;
+        top: 1rem;
+        font-size: 1.2rem;
+        z-index: 1000;
+    }
+    
+    #burger {
+        position: absolute;
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        right: 1rem;
+        top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    #burger > div {
+        height: 2px;
+        background-color: #ffffff;
+        transition: 0.5s;
+        z-index: 999;
+        padding: 1px;
+        border-radius: 30px;
+    }
+    
+    #menuAvPaa:checked ~ #burger > div:nth-child(1) {
+        transform: translateY(15px) rotate(45deg);
+    }
+    
+    #menuAvPaa:checked ~ #burger > div:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #menuAvPaa:checked ~ #burger > div:nth-child(3) {
+        transform: translateY(-15px) rotate(-45deg);
+    }
+    
+    #menu {
+        background: linear-gradient(180deg, #0F1843, #643B81);
+        width: 50rem;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(50rem);
+        z-index: 2;
+        transition: 0.5s;
+        transition-timing-function: cubic-bezier(10, 2, 3, 1);
+    }
+    
+    #menu ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0.8;
-    color: #fff;
-    padding: 10px 20px;
-    font-family: "Allerta", sans-serif;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.44);
-  }
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%; 
+    list-style: none;
+    padding: 0; 
+    margin: 0;
+    width: 100%;
+    text-align: center; 
+    }
+    
+    #menu ul li {
+    margin: 0;
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    }
+    
+    #menu ul li a {
+        color: #fff;
+        text-shadow: 0 0 7px #fff, 0 0 42px #F72862;
+        text-decoration: none;
+        font-size: 90px;
+        padding: 20px 10px;
+        transition: color 0.3s;
+        width: auto; 
+        height: auto; 
+        display: inline-block; 
+    }
 
-  .countdown {
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 4px 2px 4px #f72862;
-    color: #fff;
-  }
-
-  p {
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 4px 2px 4px #f72862;
-  }
-
-  img {
-    width: 65px;
-    height: auto;
-  }
-</style>
+    #menu ul li::after {
+    content: '';
+    position: absolute;
+    left: 0; 
+    right: 0;
+    bottom: 0; 
+    height: 2px; 
+    background-color: rgb(255, 255, 255); 
+}
+    
+    #menu ul li a:hover {
+        color: #F72862;
+        text-shadow: 0 0 7px #F72862;
+        transition: 0.3s;
+    }
+    
+    #menuAvPaa {
+        display: none;
+    }
+    
+    #menuAvPaa:checked ~ #menu {
+        transform: translateX(0rem);
+    }
+    
+    @media (max-width: 768px) {
+        #menu {
+            width: 100vw;
+            transform: translateX(100vw);
+        }
+    
+        #menuAvPaa:checked ~ #menu {
+            transform: translateX(0);
+        }
+    
+        #menu ul li a {
+            font-size: 5rem;
+            padding: 30px 10px;
+        }
+    
+        #burger {
+            right: 1rem;
+            top: 1rem;
+        }
+    }
+    </style>

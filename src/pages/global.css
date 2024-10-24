@@ -12,10 +12,18 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Saira+Stencil+One&display=swap');
+.saira-stencil-one-regular {
+  font-family: "Saira Stencil One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 img {
@@ -33,5 +41,5 @@ body {
 h2 {
   color: white;
   text-shadow: 4px 2px 4px #f72862;
-  font-family: "Allerta Stencil", sans-serif;
+  font-family: "Saira Stencil One", serif;
 }
