@@ -52,7 +52,7 @@ const artists = await fetch(url, options).then((res) => res.json());
     <Arrowleft />
     <Arrowright />
   </div>
-  <h2>DISCOVER THE ARTISTS</h2>
+  <h2 id="discover">DISCOVER THE ARTISTS</h2>
   <div class="imagecontainer">
     <img src="/img/anetha.webp" alt="anetha" />
     <!-- <div class="billedetext"><h2>ANETHA</h2></div> -->
@@ -72,6 +72,11 @@ const artists = await fetch(url, options).then((res) => res.json());
     margin-top: 7%;
     margin-bottom: 7%;
     margin-left: 5%;
+  }
+  #discover {
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
   }
   .buttons {
     display: flex;
