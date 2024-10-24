@@ -16,3 +16,10 @@ const artists = await fetch(url, options).then((res) => res.json());
 <ul>
   {artists.map((artist) => <Timetable artist={artist} />)}
 </ul>
+
+<style>
+  body {
+    background-image: linear-gradient(to bottom, #0c141e, #280a4d);
+    color: white;
+  }
+</style>
