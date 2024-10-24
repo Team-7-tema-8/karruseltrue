@@ -1,5 +1,6 @@
 ---
 import Timetable from "../../components/Timetable.astro";
+import MainLayout from "../../components/MainLayout.astro";
 
 const url = "https://qzvghkmmouqxsfoknccp.supabase.co/rest/v1/karrusel";
 const options = {
@@ -12,14 +13,9 @@ const options = {
 const artists = await fetch(url, options).then((res) => res.json());
 ---
 
-<h1>Kunstnere</h1>
-<ul>
-  {artists.map((artist) => <Timetable artist={artist} />)}
-</ul>
-
-<style>
-  body {
-    background-image: linear-gradient(to bottom, #0c141e, #280a4d);
-    color: white;
-  }
-</style>
+<MainLayout>
+  <h1>Kunstnere</h1>
+  <ul>
+    {artists.map((artist) => <Timetable artist={artist} />)}
+  </ul>
+</MainLayout>

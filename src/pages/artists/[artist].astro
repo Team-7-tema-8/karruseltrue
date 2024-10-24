@@ -18,13 +18,16 @@ export async function getStaticPaths() {
 }
 
 const { artist } = Astro.props;
+import MainLayout from "../../components/MainLayout.astro";
 ---
 
-<h1>{artist.name}</h1>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex velit fugiat
-  quasi corrupti, expedita ipsa reiciendis hic iste delectus dolores, suscipit
-  itaque enim placeat nostrum magnam voluptatum porro beatae nobis. Quod, quia.
-  Sapiente, recusandae nostrum natus ab est itaque, earum laborum nulla velit
-  deserunt inventore aliquam iste veniam assumenda?
-</p>
+<MainLayout>
+  <h1>{artist.name}</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ex velit
+    fugiat quasi corrupti, expedita ipsa reiciendis hic iste delectus dolores,
+    suscipit itaque enim placeat nostrum magnam voluptatum porro beatae nobis.
+    Quod, quia. Sapiente, recusandae nostrum natus ab est itaque, earum laborum
+    nulla velit deserunt inventore aliquam iste veniam assumenda?
+  </p>
+</MainLayout>
