@@ -2,12 +2,14 @@
 import Button from "./Button.astro";
 const header = Astro.props.header;
 const text = Astro.props.text;
+const price = Astro.props.price;
 ---
 
 <article>
   <slot />
   <h3>{header}</h3>
   <p>{text}</p>
+  {price && <p class="price">{price}</p>}
   <div class="btn-container">
     <Button text="LINEUP" />
   </div>
@@ -18,16 +20,26 @@ const text = Astro.props.text;
     background: linear-gradient(180deg, #0f1843, #643b81);
     border-radius: 10px;
     padding: 20px;
-    margin: 10px;
+    /* margin: 10px; */
     width: 200px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     color: white;
+    font-family: "Allerta Stencil", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  h2 {
-    font-size: 24px;
+  h3 {
     letter-spacing: 2px;
     font-weight: bold;
     color: #fff;
+    margin-bottom: 7px;
+  }
+
+  @media (max-width: 800px) {
+    article {
+      place-self: center center;
+    }
   }
 </style>
